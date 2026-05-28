@@ -7,24 +7,74 @@ type Props = {
 
 export function ContactHelp({ email, phoneNumber }: Props) {
   return (
-    <div className="bg-neutral-900 text-white rounded-xl p-6">
-      <h3 className="text-xl font-bold mb-4">Precisa de Ajuda?</h3>
-      <div className="space-y-3 text-sm">
+    <div
+      style={{
+        backgroundColor: "#0a0a0a",
+        padding: "1.75rem",
+        borderTop: "2px solid rgba(212,175,55,0.4)",
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "var(--font-family-ui)",
+          fontSize: "0.6rem",
+          fontWeight: 600,
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: "rgba(212,175,55,0.7)",
+          marginBottom: "0.75rem",
+        }}
+      >
+        Apoio
+      </div>
+      <h3
+        style={{
+          fontFamily: "var(--font-family-display)",
+          fontSize: "1.3rem",
+          fontWeight: 400,
+          color: "#F2EDE4",
+          marginBottom: "1.25rem",
+        }}
+      >
+        Precisa de Ajuda?
+      </h3>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
         {phoneNumber && (
-          <div className="flex items-center gap-2">
-            <Phone className="size-4" />
-            <a className="hover:underline" href={`tel:${phoneNumber}`}>
-              {phoneNumber}
-            </a>
-          </div>
+          <a
+            href={`tel:${phoneNumber}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.6rem",
+              fontFamily: "var(--font-family-ui)",
+              fontSize: "0.8rem",
+              letterSpacing: "0.05em",
+              color: "#D4AF37",
+              textDecoration: "none",
+            }}
+          >
+            <Phone style={{ width: 14, height: 14, flexShrink: 0 }} />
+            {phoneNumber}
+          </a>
         )}
         {email && (
-          <div className="flex items-center gap-2">
-            <Mail className="size-4" />
-            <a className="hover:underline" href={`mailto:${email}`}>
-              {email}
-            </a>
-          </div>
+          <a
+            href={`mailto:${email}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.6rem",
+              fontFamily: "var(--font-family-ui)",
+              fontSize: "0.8rem",
+              letterSpacing: "0.05em",
+              color: "#D4AF37",
+              textDecoration: "none",
+            }}
+          >
+            <Mail style={{ width: 14, height: 14, flexShrink: 0 }} />
+            {email}
+          </a>
         )}
       </div>
     </div>

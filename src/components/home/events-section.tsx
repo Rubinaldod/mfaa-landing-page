@@ -1,30 +1,81 @@
 import EventItem from "@/components/event/event-item";
 import EventItemSkeleton from "@/components/event/event-item-skeleton";
 import { getNextEvents } from "@/lib/strapi/services/events";
-import { CalendarX } from "lucide-react";
 
 export default async function EventsSection() {
   const { data: events } = await getNextEvents();
+
   return (
-    <section className="py-16 bg-neutral-100">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-neutral-900 mb-4">
+    <section style={{ backgroundColor: "#f8f7f5", padding: "7rem 0" }}>
+      <div className="container mx-auto px-6">
+        {/* Section header */}
+        <div style={{ marginBottom: "4rem" }}>
+          <span
+            style={{
+              display: "block",
+              fontFamily: "var(--font-family-ui)",
+              fontSize: "0.65rem",
+              fontWeight: 600,
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              color: "#D4AF37",
+              marginBottom: "1rem",
+            }}
+          >
+            Agenda · Eventos
+          </span>
+          <div
+            style={{
+              width: "3rem",
+              height: "1px",
+              backgroundColor: "#D4AF37",
+              marginBottom: "1.25rem",
+            }}
+          />
+          <h2
+            style={{
+              fontFamily: "var(--font-family-display)",
+              fontSize: "clamp(2rem, 4vw, 3.25rem)",
+              fontWeight: 300,
+              color: "#1a1a1a",
+              letterSpacing: "0.01em",
+              lineHeight: 1.1,
+            }}
+          >
             Próximos Eventos
           </h2>
-          <p className="text-neutral-600 text-lg">
-            Participe de nossas exposições e atividades especiais
-          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div style={{ maxWidth: "56rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
           {events.length === 0 ? (
-            <div className="flex flex-col items-center gap-4 py-16 text-neutral-500">
-              <CalendarX className="size-16 text-neutral-300" />
-              <p className="text-xl font-semibold">Nenhum evento agendado</p>
-              <p className="text-sm text-center max-w-sm">
-                De momento não há eventos próximos. Volte em breve para
-                descobrir as nossas próximas atividades e exposições.
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+                padding: "5rem 0",
+                borderTop: "1px solid rgba(212,175,55,0.2)",
+              }}
+            >
+              <div
+                style={{
+                  width: "2rem",
+                  height: "1px",
+                  backgroundColor: "#D4AF37",
+                  opacity: 0.5,
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: "var(--font-family-ui)",
+                  fontSize: "0.8rem",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "#9a9288",
+                }}
+              >
+                Nenhum evento agendado de momento
               </p>
             </div>
           ) : (
@@ -38,15 +89,40 @@ export default async function EventsSection() {
 
 export function EventsSectionSkeleton() {
   return (
-    <section className="py-16 bg-neutral-100">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="h-10 w-64 bg-neutral-200 rounded-lg mx-auto mb-4 animate-pulse" />
-          <div className="h-5 w-80 bg-neutral-200 rounded mx-auto animate-pulse" />
+    <section style={{ backgroundColor: "#f8f7f5", padding: "7rem 0" }}>
+      <div className="container mx-auto px-6">
+        <div style={{ marginBottom: "4rem" }}>
+          <div
+            style={{
+              height: "0.65rem",
+              width: "8rem",
+              backgroundColor: "#e8e4de",
+              marginBottom: "1rem",
+              borderRadius: 1,
+              animation: "pulse 2s ease-in-out infinite",
+            }}
+          />
+          <div
+            style={{
+              width: "3rem",
+              height: "1px",
+              backgroundColor: "#D4AF37",
+              opacity: 0.3,
+              marginBottom: "1.25rem",
+            }}
+          />
+          <div
+            style={{
+              height: "2.5rem",
+              width: "16rem",
+              backgroundColor: "#e8e4de",
+              borderRadius: 1,
+              animation: "pulse 2s ease-in-out infinite",
+            }}
+          />
         </div>
-
-        <div className="max-w-4xl mx-auto space-y-6">
-          {["skeleton-1", "skeleton-2", "skeleton-3"].map((key) => (
+        <div style={{ maxWidth: "56rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {["s1", "s2", "s3"].map((key) => (
             <EventItemSkeleton key={key} />
           ))}
         </div>

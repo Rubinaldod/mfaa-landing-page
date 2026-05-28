@@ -7,6 +7,7 @@ export async function getNextEvents() {
     "/events",
     {
       sort: "startDate",
+      populate: ["image"],
       filters: {
         startDate: {
           $gt: new Date().toISOString(),
@@ -14,7 +15,8 @@ export async function getNextEvents() {
       },
     },
     {
-      tags: ["article"],
+      tags: ["event"],
+      revalidate: 60,
     },
   );
 }

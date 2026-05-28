@@ -47,7 +47,10 @@ export default function AddToCalendarButton({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="bg-neutral-900 cursor-pointer hover:bg-neutral-800 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+        style={{ backgroundColor: "#8B0000", transition: "background-color 0.2s" }}
+        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#6B0000")}
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8B0000")}
+        className="cursor-pointer text-white px-6 py-3 rounded-sm transition-colors flex items-center gap-2"
       >
         <Calendar className="size-5" />
         Adicionar
