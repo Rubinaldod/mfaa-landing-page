@@ -1,3 +1,4 @@
+import type { StrapiImage } from "./common";
 
 export type Event = {
   title: string;
@@ -5,4 +6,5 @@ export type Event = {
   location: string | null;
   startDate: string;
   endDate: string;
+  image?: StrapiImage;
 };

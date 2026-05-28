@@ -9,7 +9,7 @@ import HeroSection, {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-50">
+    <main className="min-h-screen" style={{ backgroundColor: "#ffffff" }}>
       <Suspense fallback={<HeroSectionSkeleton />}>
         <HeroSection />
       </Suspense>

@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["mfaa"]
+  "cSpell.words": ["mfaa"],
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "args": ["-ExecutionPolicy", "RemoteSigned"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell"
 }
