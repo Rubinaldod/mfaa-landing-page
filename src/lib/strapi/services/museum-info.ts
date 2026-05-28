@@ -25,6 +25,7 @@ export async function getHeroSectionData(): Promise<StrapiResponse<HeroSection> 
     );
   } catch (err) {
     if (err instanceof StrapiError && err.status === 404) return null;
+    if (err instanceof TypeError) return null;
     throw err;
   }
 }
@@ -36,6 +37,7 @@ export async function getContact(): Promise<StrapiResponse<Contact> | null> {
     });
   } catch (err) {
     if (err instanceof StrapiError && err.status === 404) return null;
+    if (err instanceof TypeError) return null;
     throw err;
   }
 }
@@ -49,6 +51,7 @@ export async function getImportantInfo(): Promise<StrapiListResponse<ImportantIn
     );
   } catch (err) {
     if (err instanceof StrapiError && err.status === 404) return EMPTY_LIST<ImportantInfo>();
+    if (err instanceof TypeError) return EMPTY_LIST<ImportantInfo>();
     throw err;
   }
 }
@@ -62,6 +65,7 @@ export async function getOpeningHours(): Promise<StrapiListResponse<OpeningHours
     );
   } catch (err) {
     if (err instanceof StrapiError && err.status === 404) return EMPTY_LIST<OpeningHours>();
+    if (err instanceof TypeError) return EMPTY_LIST<OpeningHours>();
     throw err;
   }
 }
